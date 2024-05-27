@@ -50,3 +50,4 @@ Nothing so far lol.
 4. Home Page (What should somone see when they visit erikdahl.net or erikdahl.ca?)
 5. Erik's Private Journals -> Code will be public but data needs to be private. I want my own private thought / journaling application
 6. Erik's Poker Money Divider -> me and my Friends always play poker. This tool automates the process of figuring out who pays who.
+7. Erik's Budget Planning and Finances (Private app) -> Custom integration with my bank to keep track of spending.
