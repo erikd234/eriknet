@@ -8,7 +8,7 @@ const Important = {
 
 export default async function init() {
   mapboxgl.accessToken =
-    "pk.eyJ1IjoiZXJpa2QyMzQiLCJhIjoiY2x3bjRxNHVxMXFoYzJrbnJoZ3c4ODh5ZCJ9.rfjKO3aSDyDh4-TcRos6Rg";
+    "pk.eyJ1IjoiZXJpa2QyMzQiLCJhIjoiY2x5OXNvejZpMHRsMDJrcTZ4cTdkYnk3bSJ9.a0IYDxotO_a4bGzKtl8zlQ";
   Important.Map = new mapboxgl.Map({
     style: "mapbox://styles/erikd234/clwn6awoi00v301po6lelaloe",
     container: "map",

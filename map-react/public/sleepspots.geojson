@@ -1,0 +1,831 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.734,
+          37.991
+        ]
+      },
+      "properties": {
+        "title": "May 18th",
+        "description": "https://erikdahl.beehiiv.com/p/biking-morocco-greece"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.337,
+          37.706
+        ]
+      },
+      "properties": {
+        "title": "May 21st",
+        "description": "https://erikdahl.beehiiv.com/p/sunday-21st-leaving-athens-introducing-kai"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.358,
+          37.638
+        ]
+      },
+      "properties": {
+        "title": "May 22nd",
+        "description": "https://erikdahl.beehiiv.com/p/methena-volcanos-bike-tour"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.399,
+          37.622
+        ]
+      },
+      "properties": {
+        "title": "May 23rd",
+        "description": "https://erikdahl.beehiiv.com/p/villa-in-methena-lotus-eaters"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.43,
+          37.523
+        ]
+      },
+      "properties": {
+        "title": "May 28th",
+        "description": "https://erikdahl.beehiiv.com/p/leaving-methana-to-poros"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.123,
+          37.442
+        ]
+      },
+      "properties": {
+        "title": "May 29th",
+        "description": "https://erikdahl.beehiiv.com/p/day-10-protected-church"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.128,
+          37.588
+        ]
+      },
+      "properties": {
+        "title": "May 30th",
+        "description": "https://erikdahl.beehiiv.com/p/11-mountains-secret"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.747,
+          37.719
+        ]
+      },
+      "properties": {
+        "title": "Math 31st",
+        "description": "https://erikdahl.beehiiv.com/p/12-epidaurus-theater"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.768,
+          37.387
+        ]
+      },
+      "properties": {
+        "title": "June 1st",
+        "description": "https://erikdahl.beehiiv.com/p/13-german-surprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.895,
+          37.15
+        ]
+      },
+      "properties": {
+        "title": "June 2nd",
+        "description": "https://erikdahl.beehiiv.com/p/14-place-climbers-go"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.628,
+          36.809
+        ]
+      },
+      "properties": {
+        "title": "June 5th",
+        "description": "https://erikdahl.beehiiv.com/p/17-never-ending-climb"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.487,
+          36.617
+        ]
+      },
+      "properties": {
+        "title": "June 6th",
+        "description": "https://erikdahl.beehiiv.com/p/18-entering-money-land"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.483,
+          36.386
+        ]
+      },
+      "properties": {
+        "title": "June 7th",
+        "description": "https://erikdahl.beehiiv.com/p/19-coincidence-caf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.383,
+          36.641
+        ]
+      },
+      "properties": {
+        "title": "June 8th",
+        "description": "https://erikdahl.beehiiv.com/p/20-almost-baaaaaaaaad"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.226,
+          36.894
+        ]
+      },
+      "properties": {
+        "title": "June 9th",
+        "description": "https://erikdahl.beehiiv.com/p/21-day-everything-goes-wrong"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.696,
+          37.296
+        ]
+      },
+      "properties": {
+        "title": "June 10th",
+        "description": "https://erikdahl.beehiiv.com/p/22-missing-bus"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.579,
+          37.534
+        ]
+      },
+      "properties": {
+        "title": "June 11th",
+        "description": "https://erikdahl.beehiiv.com/p/23-dumb-tourists"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.629,
+          37.644
+        ]
+      },
+      "properties": {
+        "title": "June 12th",
+        "description": "https://erikdahl.beehiiv.com/p/24-meal-turns-place-sleep"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.737,
+          38.246
+        ]
+      },
+      "properties": {
+        "title": "June 13th",
+        "description": "https://erikdahl.beehiiv.com/p/25-reunion"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.234,
+          38.454
+        ]
+      },
+      "properties": {
+        "title": "June 17th",
+        "description": "https://erikdahl.beehiiv.com/p/29-advantage-biking-thunderstorm"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.884,
+          38.78
+        ]
+      },
+      "properties": {
+        "title": "June 18th",
+        "description": "https://erikdahl.beehiiv.com/p/30-following-motorcycles"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.263,
+          39.506
+        ]
+      },
+      "properties": {
+        "title": "June 19th",
+        "description": "https://erikdahl.beehiiv.com/p/31-alexs-home-town"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.928,
+          39.625
+        ]
+      },
+      "properties": {
+        "title": "June 21st",
+        "description": "https://erikdahl.beehiiv.com/p/33-unforgettable-day-corfu"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.86,
+          39.669
+        ]
+      },
+      "properties": {
+        "title": "June 22nd",
+        "description": "https://erikdahl.beehiiv.com/p/33-kais-grand-return"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.632,
+          39.356
+        ]
+      },
+      "properties": {
+        "title": "June 23rd",
+        "description": "https://erikdahl.beehiiv.com/p/35-river-takes-souls-underworld"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.163,
+          39.491
+        ]
+      },
+      "properties": {
+        "title": "June 24th",
+        "description": "https://erikdahl.beehiiv.com/p/36-ciao-bello-worst-best-goodbye"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.885,
+          40.271
+        ]
+      },
+      "properties": {
+        "title": "June 25th",
+        "description": "https://erikdahl.beehiiv.com/p/37-first-day-italia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.139,
+          40.515
+        ]
+      },
+      "properties": {
+        "title": "June 26th",
+        "description": "https://erikdahl.beehiiv.com/p/38-everything-always-closed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.618,
+          40.674
+        ]
+      },
+      "properties": {
+        "title": "June 27th",
+        "description": "https://erikdahl.beehiiv.com/p/39-piano-watch-farm"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.524,
+          40.66
+        ]
+      },
+      "properties": {
+        "title": "June 28th",
+        "description": "https://erikdahl.beehiiv.com/p/40-day-matera"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.986,
+          40.533
+        ]
+      },
+      "properties": {
+        "title": "June 29th",
+        "description": "https://erikdahl.beehiiv.com/p/41-king-hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.551,
+          40.451
+        ]
+      },
+      "properties": {
+        "title": "June 30th",
+        "description": "https://erikdahl.beehiiv.com/p/42"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.105,
+          40.593
+        ]
+      },
+      "properties": {
+        "title": "July 1st",
+        "description": "https://erikdahl.beehiiv.com/p/43-sponsored-bike-tourist"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.765,
+          40.68
+        ]
+      },
+      "properties": {
+        "title": "July 2nd",
+        "description": "https://erikdahl.beehiiv.com/p/44-british-amigas-first-day-salerno"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.806,
+          40.654
+        ]
+      },
+      "properties": {
+        "title": "July 3rd",
+        "description": "https://erikdahl.beehiiv.com/p/45-kissy-kissy-italian-beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.374,
+          40.622
+        ]
+      },
+      "properties": {
+        "title": "July 4th",
+        "description": "https://erikdahl.beehiiv.com/p/46-amalfi-coast-lemon-trees"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.495,
+          40.762
+        ]
+      },
+      "properties": {
+        "title": "July 5th",
+        "description": "https://erikdahl.beehiiv.com/p/47-campsite-conversations"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.272,
+          40.868
+        ]
+      },
+      "properties": {
+        "title": "July 6th",
+        "description": "https://erikdahl.beehiiv.com/p/48-city-preserved-volcano-pompei"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.056,
+          40.853
+        ]
+      },
+      "properties": {
+        "title": "July 8th",
+        "description": "https://erikdahl.beehiiv.com/p/50-pirates-attack"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.945,
+          41.367
+        ]
+      },
+      "properties": {
+        "title": "July 9th",
+        "description": "https://erikdahl.beehiiv.com/p/51-150km-later"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.484,
+          41.896
+        ]
+      },
+      "properties": {
+        "title": "July 10th",
+        "description": "https://erikdahl.beehiiv.com/p/52-roads-lead-rome"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.25,
+          43.776
+        ]
+      },
+      "properties": {
+        "title": "July 11th",
+        "description": "https://erikdahl.beehiiv.com/p/53-rome-one-day-impossible"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.282,
+          43.809
+        ]
+      },
+      "properties": {
+        "title": "July 12th",
+        "description": "https://erikdahl.beehiiv.com/p/54-florence-day-1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.965,
+          44.412
+        ]
+      },
+      "properties": {
+        "title": "July 13th",
+        "description": "https://erikdahl.beehiiv.com/p/55-pisa-20-minutes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.085,
+          45.816
+        ]
+      },
+      "properties": {
+        "title": "July 16th",
+        "description": "https://erikdahl.beehiiv.com/p/56-time-skip"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.997,
+          46.16
+        ]
+      },
+      "properties": {
+        "title": "July 22nd",
+        "description": "-"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.211,
+          46.187
+        ]
+      },
+      "properties": {
+        "title": "July 23rd",
+        "description": "https://erikdahl.beehiiv.com/p/57-first-day-alps"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.509,
+          46.259
+        ]
+      },
+      "properties": {
+        "title": "July 24th",
+        "description": "https://erikdahl.beehiiv.com/p/58-sleeping-beside-bomb"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.528,
+          46.25
+        ]
+      },
+      "properties": {
+        "title": "July 25th",
+        "description": "https://erikdahl.beehiiv.com/p/59-three-idiots-bikes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.512,
+          46.369
+        ]
+      },
+      "properties": {
+        "title": "July 26th",
+        "description": "https://erikdahl.beehiiv.com/p/60-passo-di-gavia-gavia-pass"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.54,
+          46.387
+        ]
+      },
+      "properties": {
+        "title": "July 27th",
+        "description": "https://erikdahl.beehiiv.com/p/61-wtf-hut-top-mountain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.375,
+          46.468
+        ]
+      },
+      "properties": {
+        "title": "July 28th",
+        "description": "https://erikdahl.beehiiv.com/p/62-red-mountain-bike-trails"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.375,
+          46.468
+        ]
+      },
+      "properties": {
+        "title": "July 29th",
+        "description": "https://erikdahl.beehiiv.com/p/63-rest-day-bormio"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.606,
+          46.632
+        ]
+      },
+      "properties": {
+        "title": "July 30th",
+        "description": "https://erikdahl.beehiiv.com/p/64-highest-mountain-pass-europe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.95,
+          46.748
+        ]
+      },
+      "properties": {
+        "title": "July 31st",
+        "description": "https://erikdahl.beehiiv.com/p/65-2-ups-2-downs-finally-brakes-work"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.565,
+          47.377
+        ]
+      },
+      "properties": {
+        "title": "August 1st",
+        "description": "https://erikdahl.beehiiv.com/p/66-everything-goes-wrong-life-aint-real"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.409,
+          47.414
+        ]
+      },
+      "properties": {
+        "title": "August 2nd",
+        "description": "https://erikdahl.beehiiv.com/p/67-phone-fixed-leaving-zurich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6,
+          47.56
+        ]
+      },
+      "properties": {
+        "title": "August 3rd",
+        "description": "https://erikdahl.beehiiv.com/p/68-swiss-watches-marking-time-floating-rhine"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.804,
+          48.61
+        ]
+      },
+      "properties": {
+        "title": "August 5th",
+        "description": "https://erikdahl.beehiiv.com/p/70-rumbo-paris"
+      }
+    }
+  ]
+}
