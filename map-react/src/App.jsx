@@ -57,7 +57,9 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   // overlay state
-  const [selectedId, setSelectedId] = useState(null);
+  // this is starting at 0and goes to zero
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selectedId = selectedIndex + 1;
   const [selIframeSrc, setSelIframeSrc] = useState("1.html");
   const [iFrameView, setIFrameView] = useState(false);
   const scrollingElementRef = useRef(null);
@@ -98,6 +100,10 @@ function App() {
     }
   };
 
+  const setSelectedIdFromPostId = (postId) => {
+    setSelectedIndex(postId - 1);
+  };
+
   const handleSelection = (e, selectedPostId, iframeSource) => {
     setSelIframeSrc(iframeSource);
     setIFrameView(true);
@@ -106,7 +112,7 @@ function App() {
     const container = scrollingElementRef.current;
     centerElementInScrollContainer(container, element);
     setTimeout(() => {
-      setSelectedId(selectedPostId);
+      setSelectedIdFromPostId(selectedPostId);
     }, 100);
   };
 
@@ -136,14 +142,15 @@ function App() {
   }, []);
 
   const handlePrevClick = () => {
-    if (!selectedId) {
-      setSelectedId(0);
+    if (iFrameView == true) {
+      handleOverlayPrevClick();
     }
-    if (selectedId < 0) {
+    const nextContainerIndex = selectedIndex - 1;
+    if (nextContainerIndex < 0) {
       return;
     }
-    setSelectedId(selectedId - 1);
-    const nextDivToCenter = blogCardRefs.current[selectedId];
+    setSelectedIndex(nextContainerIndex);
+    const nextDivToCenter = blogCardRefs.current[nextContainerIndex];
     centerElementInScrollContainer(
       scrollingElementRef.current,
       nextDivToCenter
@@ -151,20 +158,44 @@ function App() {
   };
 
   const handleNextClick = () => {
-    if (!selectedId) {
-      setSelectedId(0);
+    if (iFrameView == true) {
+      handleOverlayNextClick();
     }
-    if (selectedId == CARDS_TO_LOAD) {
+    const nextContainerIndex = selectedIndex + 1;
+    if (nextContainerIndex == blogCardRefs.current.length) {
       return;
     }
-    setSelectedId(selectedId + 1);
-    const nextDivToCenter = blogCardRefs.current[selectedId];
+    setSelectedIndex(nextContainerIndex);
+    const nextDivToCenter = blogCardRefs.current[nextContainerIndex];
     centerElementInScrollContainer(
       scrollingElementRef.current,
       nextDivToCenter
     );
   };
 
+  const handleOverlayNextClick = () => {
+    if (!selectedIndex) {
+      setSelectedIndex(0);
+    }
+    const nextPostIndex = selectedIndex + 1;
+    if (nextPostIndex == blogCardRefs.current.length) {
+      return;
+    }
+    setSelIframeSrc(posts[nextPostIndex].htmlPath);
+    setSelectedIndex(nextPostIndex);
+  };
+
+  const handleOverlayPrevClick = () => {
+    if (!selectedIndex) {
+      setSelectedIndex(0);
+    }
+    const prevPostIndex = selectedIndex - 1;
+    if (prevPostIndex < 0) {
+      return;
+    }
+    setSelIframeSrc(posts[prevPostIndex].htmlPath);
+    setSelectedIndex(prevPostIndex);
+  };
   const handleIFrameClose = () => {
     setIFrameView(false);
   };
@@ -178,20 +209,30 @@ function App() {
           onSelection={handleSelection}
           selIframeSrc={selIframeSrc}
           isIFrameView={iFrameView}
-          onPrevClick={handlePrevClick}
-          onNextClick={handleNextClick}
+          onPrevClick={handleOverlayPrevClick}
+          onNextClick={handleOverlayNextClick}
           onIFrameClose={handleIFrameClose}
           blogCardRefs={blogCardRefs}
           posts={posts}
         />
         <div className="relative">
           <button
-            className="absolute top-1/2 z-50 right-0"
+            className={
+              "absolute top-1/2 z-50 right-0" +
+              (selectedIndex == blogCardRefs.current.length - 1
+                ? " hidden"
+                : "")
+            }
             onClick={handleNextClick}
           >
             Next
           </button>
-          <button className="absolute top-1/2 z-50" onClick={handlePrevClick}>
+          <button
+            className={
+              "absolute top-1/2 z-50" + (selectedIndex == 0 ? " hidden" : "")
+            }
+            onClick={handlePrevClick}
+          >
             Prev
           </button>
           <div id="map" ref={mapContainer} className="w-full h-full" />
