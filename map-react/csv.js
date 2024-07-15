@@ -16,6 +16,7 @@ const results = [];
 
 const outputJsonDir = path.resolve(__dirname, "public/posts");
 const outputHtmlDir = path.resolve(__dirname, "public/html");
+const outputManiftestDir = path.resolve(__dirname, "public");
 
 const ensureDirectoryExists = (dir) => {
   if (!fs.existsSync(dir)) {
@@ -61,6 +62,12 @@ const extractNumberFromTitle = (title) => {
   return match ? match[1] : Math.floor(Math.random() * 100000) + 1;
 };
 
+// returns the manifest object,
+// {
+//    postId: 1
+//    postPath: posts/1.json
+//    htmlPath: html/1.json
+// }
 const writePostToFile = (post) => {
   const cleanedHtml = cleanHtmlContent(post.content_html);
   const postNumber = extractNumberFromTitle(post.web_title);
@@ -74,11 +81,21 @@ const writePostToFile = (post) => {
 
   const htmlFilePath = path.join(outputHtmlDir, `${postNumber}.html`);
   fs.writeFileSync(htmlFilePath, cleanedHtml);
+  return {
+    postId: postNumber,
+    web_title: post.web_title,
+    thumbnail: post.thumbnail_url,
+    subtitle: post.web_subtitle, // this is also the date for most of the posts.
+    postPath: `${postNumber}.json`,
+    htmlPath: `${postNumber}.html`,
+  };
 };
 
 ensureDirectoryExists(outputJsonDir);
 ensureDirectoryExists(outputHtmlDir);
+ensureDirectoryExists(outputManiftestDir);
 
+const postManifest = { manifest: [] };
 fs.createReadStream(
   path.resolve(__dirname, "posts-2024-05-2620240526-2-7o72gy.csv")
 )
@@ -97,11 +114,16 @@ fs.createReadStream(
       thumbnail_url: data.thumbnail_url,
       created_at: data.created_at,
     };
+    let manifestEntry;
     if (post.status != "draft") {
       results.push(post);
-      writePostToFile(post);
+      manifestEntry = writePostToFile(post);
+      postManifest.manifest.push(manifestEntry);
     }
   })
   .on("end", () => {
     console.log("All posts have been processed and written to files.");
+    const manifestPath = path.join(outputManiftestDir, `manifest.json`);
+    postManifest.manifest.sort((a, b) => a.postId - b.postId);
+    fs.writeFileSync(manifestPath, JSON.stringify(postManifest, null, 2));
   });

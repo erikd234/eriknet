@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-const BlogIframe = ({ blogName }) => {
-  const iframeSrc = `/html/${blogName}.html`;
+const BlogClose = ({ children, className }) => {
+  return <div className={"bg-white p-3 " + className}>{children}</div>;
+};
+const BlogIframe = ({ iframeSrc, blogScrollPos, children }) => {
+  const blogClose = React.Children.toArray(children).find(
+    (child) => child.type === BlogClose
+  );
 
+  const src = `/html/${iframeSrc}`;
+  const topValue = `${blogScrollPos}px`;
   return (
-    <div style={{ width: "100%", height: "100vh" }}>
+    <div
+      className="absolute z-50"
+      style={{ width: "100%", height: "100%", top: `${topValue}` }}
+    >
+      {blogClose}
       <iframe
-        src={iframeSrc}
-        title={blogName}
+        src={src}
         style={{ width: "100%", height: "100%", border: "none" }}
       />
     </div>
   );
 };
 
-export default BlogIframe;
+export { BlogIframe, BlogClose };
