@@ -3,9 +3,11 @@ import axios from "axios";
 import { createPortal } from "react-dom";
 import "./App.css";
 import Overlay from "./components/overlay";
+import PostMapMarker from "./components/post-map-marker";
+import { MAPBOX_TOKEN } from "./env.js";
+
 const mapboxgl = window.mapboxgl;
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiZXJpa2QyMzQiLCJhIjoiY2x5OXNvejZpMHRsMDJrcTZ4cTdkYnk3bSJ9.a0IYDxotO_a4bGzKtl8zlQ";
+mapboxgl.accessToken = MAPBOX_TOKEN;
 
 async function fetchGeoJSON() {
   try {
@@ -21,14 +23,6 @@ async function fetchGeoJSON() {
   }
 }
 
-const HelloFromTheOtherSide = () => {
-  return (
-    <>
-      <div>HelloFromTheOtherSIde</div>
-    </>
-  );
-};
-
 const Important = {
   CardClassSelector: ".mapMarker",
   CardSelIdPrefix: "mapMarker",
@@ -39,18 +33,19 @@ const Important = {
 
 function createCardDivContainer(id) {
   const cardSkeleton = document.querySelector(Important.CardClassSelector);
-  cardSkeleton.id = Important.CardSelIdPrefix + id;
   const clone = cardSkeleton.cloneNode(true);
+  clone.id = Important.CardSelIdPrefix + id;
   return clone;
 }
 
-const CARDS_TO_LOAD = 5;
+const CARDS_TO_LOAD = 70;
+const GOOD_APP_ZOOM = 10;
 
 function App() {
   const mapContainer = useRef(null);
   const map = useRef(null);
   // Map state
-  const portalDiv = useRef(null);
+  const portalDivs = useRef([]);
   const [lng, setLng] = useState(-70.9);
   const [lat, setLat] = useState(42.35);
   const [zoom, setZoom] = useState(9);
@@ -111,6 +106,8 @@ function App() {
     const element = e.currentTarget;
     const container = scrollingElementRef.current;
     centerElementInScrollContainer(container, element);
+    // minus one since we returned a postID not the index
+    flyMapToPostIndex(selectedPostId - 1);
     setTimeout(() => {
       setSelectedIdFromPostId(selectedPostId);
     }, 100);
@@ -122,7 +119,7 @@ function App() {
       style: "mapbox://styles/erikd234/clwn6awoi00v301po6lelaloe",
       container: "map",
       projection: "globe", // Display the map as a globe, since satellite-v9 defaults to Mercator
-      zoom: 10,
+      zoom: GOOD_APP_ZOOM,
       center: [23.7, 37.98], // long lat
     });
     map.current.addControl(new mapboxgl.NavigationControl());
@@ -135,8 +132,12 @@ function App() {
         new mapboxgl.Marker(newDiv)
           .setLngLat(feature.geometry.coordinates)
           .addTo(map.current);
+        portalDivs.current[i] = {
+          el: document.getElementById(Important.CardSelIdPrefix + i),
+          coordinates: feature.geometry.coordinates,
+        };
       }
-      portalDiv.current = document.getElementById("mapMarker1");
+      flyMapToPostIndex(0);
       setLoaded(true);
     });
   }, []);
@@ -155,6 +156,7 @@ function App() {
       scrollingElementRef.current,
       nextDivToCenter
     );
+    flyMapToPostIndex(nextContainerIndex);
   };
 
   const handleNextClick = () => {
@@ -171,6 +173,14 @@ function App() {
       scrollingElementRef.current,
       nextDivToCenter
     );
+    // move map
+    flyMapToPostIndex(nextContainerIndex);
+  };
+
+  const flyMapToPostIndex = (index) => {
+    // grabs the element coordinates
+    const coordinates = portalDivs.current[index].coordinates;
+    map.current.flyTo({ center: coordinates, zoom: GOOD_APP_ZOOM, speed: 0.5 });
   };
 
   const handleOverlayNextClick = () => {
@@ -183,6 +193,7 @@ function App() {
     }
     setSelIframeSrc(posts[nextPostIndex].htmlPath);
     setSelectedIndex(nextPostIndex);
+    flyMapToPostIndex(nextPostIndex);
   };
 
   const handleOverlayPrevClick = () => {
@@ -195,9 +206,23 @@ function App() {
     }
     setSelIframeSrc(posts[prevPostIndex].htmlPath);
     setSelectedIndex(prevPostIndex);
+    flyMapToPostIndex(prevPostIndex);
   };
   const handleIFrameClose = () => {
     setIFrameView(false);
+  };
+
+  const handlePostMapMarkerClick = (newIndex) => {
+    if (iFrameView) {
+      setSelIframeSrc(posts[newIndex].htmlPath);
+    }
+    setSelectedIndex(newIndex);
+    const nextDivToCenter = blogCardRefs.current[newIndex];
+    centerElementInScrollContainer(
+      scrollingElementRef.current,
+      nextDivToCenter
+    );
+    flyMapToPostIndex(newIndex);
   };
 
   return (
@@ -239,7 +264,16 @@ function App() {
         </div>
       </div>
       {loaded == true
-        ? createPortal(<HelloFromTheOtherSide />, portalDiv.current)
+        ? portalDivs.current.map((obj, index) => {
+            return createPortal(
+              <PostMapMarker
+                key={index}
+                index={index}
+                onClick={handlePostMapMarkerClick}
+              />,
+              obj.el
+            );
+          })
         : ""}
     </>
   );

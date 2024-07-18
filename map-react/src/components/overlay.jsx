@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import BlogCard from "./blog-card";
 import { BlogIframe, BlogClose } from "./blog-iframe";
+import Spinner from "./spinner";
 
 const Overlay = forwardRef(
   (
@@ -44,6 +45,14 @@ const Overlay = forwardRef(
           ) : (
             ""
           )}
+          {isIFrameView ? (
+            <div className="w-full h-full bg-white absolute z-40">
+              <Spinner />
+            </div>
+          ) : (
+            ""
+          )}
+
           {posts.map((post, index) => (
             <BlogCard
               key={post.postId}

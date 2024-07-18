@@ -62,6 +62,58 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          23.399,
+          37.622
+        ]
+      },
+      "properties": {
+        "title": "May 24th"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.399,
+          37.622
+        ]
+      },
+      "properties": {
+        "title": "May 25th"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.399,
+          37.622
+        ]
+      },
+      "properties": {
+        "title": "May 26th"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.399,
+          37.622
+        ]
+      },
+      "properties": {
+        "title": "May 27th"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           23.43,
           37.523
         ]
@@ -139,6 +191,32 @@
       "properties": {
         "title": "June 2nd",
         "description": "https://erikdahl.beehiiv.com/p/14-place-climbers-go"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.895,
+          37.15
+        ]
+      },
+      "properties": {
+        "title": "June 3rd"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.895,
+          37.15
+        ]
+      },
+      "properties": {
+        "title": "June 4th"
       }
     },
     {
@@ -272,6 +350,46 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          21.737,
+          38.246
+        ]
+      },
+      "properties": {
+        "title": "June 14th",
+        "description": "https://erikdahl.beehiiv.com/p/25-reunion"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.737,
+          38.246
+        ]
+      },
+      "properties": {
+        "title": "June 15th"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.737,
+          38.246
+        ]
+      },
+      "properties": {
+        "title": "June 16th"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           21.234,
           38.454
         ]
@@ -307,6 +425,19 @@
       "properties": {
         "title": "June 19th",
         "description": "https://erikdahl.beehiiv.com/p/31-alexs-home-town"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.263,
+          39.506
+        ]
+      },
+      "properties": {
+        "title": "June 20th"
       }
     },
     {
@@ -531,6 +662,19 @@
       "properties": {
         "title": "July 6th",
         "description": "https://erikdahl.beehiiv.com/p/48-city-preserved-volcano-pompei"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.272,
+          40.868
+        ]
+      },
+      "properties": {
+        "title": "July 7th"
       }
     },
     {

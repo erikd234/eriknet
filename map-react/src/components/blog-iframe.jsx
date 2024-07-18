@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const BlogClose = ({ children, className }) => {
   return <div className={"bg-white p-3 " + className}>{children}</div>;
@@ -10,6 +10,7 @@ const BlogIframe = ({ iframeSrc, blogScrollPos, children }) => {
 
   const src = `/html/${iframeSrc}`;
   const topValue = `${blogScrollPos}px`;
+  // adding a div slightly underneath that is white to now have ugly flickering
   return (
     <div
       className="absolute z-50"
