@@ -1,8 +1,13 @@
 import React from "react";
 
-const BlogClose = ({ children, className }) => {
-  return <div className={"bg-white p-3 " + className}>{children}</div>;
+const BlogClose = ({ children }) => {
+  return (
+    <div className="flex items-center justify-between px-3 py-2 bg-white border-b border-gray-100 shadow-sm">
+      {children}
+    </div>
+  );
 };
+
 const BlogIframe = ({ iframeSrc, blogScrollPos, children }) => {
   const blogClose = React.Children.toArray(children).find(
     (child) => child.type === BlogClose
@@ -10,7 +15,6 @@ const BlogIframe = ({ iframeSrc, blogScrollPos, children }) => {
 
   const src = `/html/${iframeSrc}`;
   const topValue = `${blogScrollPos}px`;
-  // adding a div slightly underneath that is white to now have ugly flickering
   return (
     <div
       className="absolute z-50"

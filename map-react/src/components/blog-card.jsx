@@ -1,108 +1,103 @@
 import { forwardRef } from "react";
 
-const posts = [
-  {
-    id: 1,
-    title: "Boost your conversion rate",
-    href: "#",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Greece", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  // More posts...
-];
+const PlaceholderGradient = ({ postNumber }) => (
+  <div className="absolute inset-0 h-full w-full rounded-xl bg-gradient-to-br from-amber-200 via-orange-300 to-rose-300 flex items-center justify-center">
+    <span className="text-4xl opacity-60 select-none">🚲</span>
+  </div>
+);
+
+const formatDate = (dateStr) => {
+  if (!dateStr) return null;
+  try {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  } catch {
+    return null;
+  }
+};
 
 const BlogCard = forwardRef(
   (
     {
       postId,
+      postNumber,
       iframeUrl,
       selected,
       mainHeader,
       subHeader,
       thumbnailUrl,
+      createdAt,
       onSelection,
     },
     ref
   ) => {
     const handleSelection = (e) => {
-      console.log("fromBlogCard ", iframeUrl);
       onSelection(e, postId, iframeUrl);
     };
-    const post = posts[0];
+
+    const hasThumbnail = thumbnailUrl && thumbnailUrl.trim() !== "";
+    const formattedDate = formatDate(createdAt);
+
     return (
       <div
+        ref={ref}
         className={`
-        w-full 
-        p-8 
-        ${selected ? "border-solid border-2 border-blue-400" : ""}
+          w-full px-4 py-2
         `}
       >
         <article
-          className="relative isolate flex flex-col gap-8 lg:flex-row hover:cursor-pointer"
+          className={`
+            relative flex gap-4 p-3 rounded-xl cursor-pointer
+            bg-white shadow-sm
+            transition-all duration-200 ease-out
+            hover:shadow-md hover:-translate-y-0.5
+            ${selected ? "border-l-4 border-l-amber-500 shadow-md" : "border-l-4 border-l-transparent"}
+          `}
           onClick={handleSelection}
-          ref={ref}
         >
-          <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-            <img
-              alt=""
-              src={thumbnailUrl}
-              className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
-            />
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-          </div>
-          <div>
-            <div className="flex items-center gap-x-4 text-xs">
-              <time dateTime={post.datetime} className="text-gray-500">
-                {post.date}
-              </time>
-              <a
-                href={post.category.href}
-                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-              >
-                {post.category.title}
-              </a>
-            </div>
-            <div className="group relative max-w-xl">
-              <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                <a href={post.href}>
-                  <span className="absolute inset-0" />
-                  {mainHeader}
-                </a>
-              </h3>
-              <p className="mt-5 text-sm leading-6 text-gray-600">
-                {subHeader}
-              </p>
-            </div>
-            <div className="mt-6 flex border-t border-gray-900/5 pt-6">
-              <div className="relative flex items-center gap-x-4">
+          {/* Thumbnail */}
+          <div className="relative w-20 h-20 shrink-0 rounded-xl overflow-hidden">
+            {hasThumbnail ? (
+              <>
                 <img
                   alt=""
-                  src="https://media.beehiiv.com/cdn-cgi/image/format=auto,width=400,height=211,fit=scale-down,onerror=redirect/uploads/user/profile_picture/28d72229-3509-4127-a360-5d8d85b30fd1/IMG_6398.jpeg"
-                  className="h-10 w-10 rounded-full bg-gray-50"
+                  src={thumbnailUrl}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
                 />
-                <div className="text-sm leading-6">
-                  <p className="font-semibold text-gray-900">
-                    <a href={post.author.href}>
-                      <span className="absolute inset-0" />
-                      Erik Dahl
-                    </a>
-                  </p>
-                  <p className="text-gray-600">Bike Man</p>
-                </div>
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </>
+            ) : (
+              <PlaceholderGradient postNumber={postNumber} />
+            )}
+          </div>
+
+          {/* Content */}
+          <div className="flex-1 min-w-0 flex flex-col justify-center">
+            <div className="flex items-center gap-2 mb-1">
+              {postNumber && (
+                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold shrink-0">
+                  {postNumber}
+                </span>
+              )}
+              {formattedDate && (
+                <time className="text-[11px] text-gray-400 font-medium">
+                  {formattedDate}
+                </time>
+              )}
             </div>
+            <h3 className="text-sm font-semibold leading-tight text-gray-900 truncate">
+              {mainHeader}
+            </h3>
+            {subHeader && (
+              <p className="mt-0.5 text-xs leading-snug text-gray-500 truncate">
+                {subHeader}
+              </p>
+            )}
           </div>
         </article>
       </div>
