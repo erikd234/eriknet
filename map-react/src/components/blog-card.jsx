@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 
-const PlaceholderGradient = ({ postNumber }) => (
-  <div className="absolute inset-0 h-full w-full rounded-xl bg-gradient-to-br from-amber-200 via-orange-300 to-rose-300 flex items-center justify-center">
-    <span className="text-4xl opacity-60 select-none">🚲</span>
+const PlaceholderGradient = () => (
+  <div className="w-full h-full bg-gradient-to-br from-emerald-700 via-green-600 to-teal-500 flex items-center justify-center">
+    <span className="text-5xl opacity-70 select-none">🚲</span>
   </div>
 );
 
@@ -43,24 +43,13 @@ const BlogCard = forwardRef(
     const formattedDate = formatDate(createdAt);
 
     return (
-      <div
-        ref={ref}
-        className={`
-          w-full px-4 py-2
-        `}
-      >
+      <div ref={ref} className="w-full px-5 py-1.5">
         <article
-          className={`
-            relative flex gap-4 p-3 rounded-xl cursor-pointer
-            bg-white shadow-sm
-            transition-all duration-200 ease-out
-            hover:shadow-md hover:-translate-y-0.5
-            ${selected ? "border-l-4 border-l-amber-500 shadow-md" : "border-l-4 border-l-transparent"}
-          `}
+          className={`bamboo-card cursor-pointer ${selected ? "selected" : ""}`}
           onClick={handleSelection}
         >
-          {/* Thumbnail */}
-          <div className="relative w-20 h-20 shrink-0 rounded-xl overflow-hidden">
+          {/* Full-width image on top */}
+          <div className="relative w-full h-40 overflow-hidden">
             {hasThumbnail ? (
               <>
                 <img
@@ -69,32 +58,32 @@ const BlogCard = forwardRef(
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
               </>
             ) : (
-              <PlaceholderGradient postNumber={postNumber} />
+              <PlaceholderGradient />
+            )}
+            {/* Post number badge */}
+            {postNumber && (
+              <span className="absolute top-2 left-2 inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold shadow-md"
+                style={{ background: 'var(--bamboo-tan)', color: 'var(--jungle-deep)' }}>
+                {postNumber}
+              </span>
             )}
           </div>
 
-          {/* Content */}
-          <div className="flex-1 min-w-0 flex flex-col justify-center">
-            <div className="flex items-center gap-2 mb-1">
-              {postNumber && (
-                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold shrink-0">
-                  {postNumber}
-                </span>
-              )}
-              {formattedDate && (
-                <time className="text-[11px] text-gray-400 font-medium">
-                  {formattedDate}
-                </time>
-              )}
-            </div>
-            <h3 className="text-sm font-semibold leading-tight text-gray-900 truncate">
+          {/* Content below image */}
+          <div className="px-3 py-2.5">
+            {formattedDate && (
+              <time className="text-[11px] font-medium" style={{ color: 'var(--moss)' }}>
+                {formattedDate}
+              </time>
+            )}
+            <h3 className="text-sm font-semibold leading-tight mt-0.5" style={{ color: 'var(--jungle-deep)' }}>
               {mainHeader}
             </h3>
             {subHeader && (
-              <p className="mt-0.5 text-xs leading-snug text-gray-500 truncate">
+              <p className="mt-0.5 text-xs leading-snug text-gray-500 line-clamp-2">
                 {subHeader}
               </p>
             )}

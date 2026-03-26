@@ -294,6 +294,7 @@ function App() {
                 key={index}
                 index={index}
                 onClick={handlePostMapMarkerClick}
+                thumbnailUrl={posts[index]?.thumbnail}
               />,
               obj.el
             );

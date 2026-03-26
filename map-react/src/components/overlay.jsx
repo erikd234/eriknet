@@ -3,13 +3,23 @@ import BlogCard from "./blog-card";
 import { BlogIframe, BlogClose } from "./blog-iframe";
 import Spinner from "./spinner";
 
+const LeafSVG = () => (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 35 C5 35, 10 5, 35 5 C35 5, 25 10, 20 20 C15 30, 5 35, 5 35Z" fill="currentColor" opacity="0.6"/>
+    <path d="M5 35 C12 22, 20 15, 35 5" stroke="currentColor" strokeWidth="0.8" opacity="0.4" fill="none"/>
+    <path d="M10 30 C14 24, 18 20, 28 12" stroke="currentColor" strokeWidth="0.5" opacity="0.3" fill="none"/>
+    <path d="M8 32 C11 28, 15 25, 22 18" stroke="currentColor" strokeWidth="0.5" opacity="0.3" fill="none"/>
+  </svg>
+);
+
 const Header = () => (
-  <div className="sticky top-0 z-10 w-full bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 backdrop-blur-sm border-b border-amber-100/60">
-    <div className="flex items-center justify-center gap-2 px-5 py-3">
-      <span className="text-lg select-none">🚲</span>
-      <h1 className="text-lg font-bold tracking-tight text-gray-800">
+  <div className="wooden-sign sticky top-0 z-10 w-full">
+    <div className="flex items-center justify-center gap-3 px-5 py-3">
+      <span className="text-xl select-none">🌿</span>
+      <h1 className="text-lg font-bold tracking-wide">
         Erik's European Bike Trip
       </h1>
+      <span className="text-xl select-none">🚲</span>
     </div>
   </div>
 );
@@ -32,12 +42,20 @@ const Overlay = forwardRef(
     const hideOverflow = isIFrameView;
 
     return (
-      <div className="overflow-hidden h-dvh relative">
+      <div className="overflow-hidden h-dvh relative bamboo-frame">
+        {/* Leaf corner decorations */}
+        <div className="leaf-corner-tl" style={{ color: 'var(--jungle-light)' }}>
+          <LeafSVG />
+        </div>
+        <div className="leaf-corner-br" style={{ color: 'var(--jungle-light)' }}>
+          <LeafSVG />
+        </div>
+
         <div
           ref={ref}
           className={`
             h-full w-full
-            bg-gray-50
+            jungle-panel
             flex flex-col items-center
             overlay-scroll
             ${hideOverflow ? "overflow-hidden" : "overflow-auto"}
@@ -88,7 +106,7 @@ const Overlay = forwardRef(
             </div>
           ) : null}
 
-          <div className="w-full max-w-2xl py-2">
+          <div className="w-full max-w-2xl py-3 px-1">
             {posts.map((post, index) => (
               <BlogCard
                 key={post.postId}

@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== JUNGLE / BAMBOO THEME ===== */
+:root {
+  --jungle-deep: #1a3a2a;
+  --jungle-mid: #2d5a3f;
+  --jungle-light: #4a7c5c;
+  --moss: #6b8f71;
+  --bamboo-tan: #c4a265;
+  --bamboo-light: #dcc99a;
+  --bamboo-dark: #8b6f3a;
+  --parchment: #f5f0e1;
+  --parchment-dark: #e8dfc8;
+  --golden-glow: #d4a843;
+  --golden-soft: rgba(212, 168, 67, 0.25);
+  --rope-brown: #7a5c2e;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +28,7 @@ body {
   height: 100vh;
 }
 
+/* ===== MAP MARKERS ===== */
 .mapMarker {
   margin-top: -20px;
 }
@@ -20,6 +37,36 @@ body {
   margin-top: 0px;
   width: 10px;
   height: 10px;
+}
+
+/* Photo map marker */
+.photo-marker {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--jungle-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo-marker:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+.photo-marker img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo-marker .emoji-fallback {
+  font-size: 20px;
+  line-height: 1;
+  user-select: none;
 }
 
 @keyframes spin {
@@ -31,22 +78,129 @@ body {
   }
 }
 
-/* Subtle scrollbar for blog list */
+/* ===== PARCHMENT BACKGROUND & BAMBOO PANEL ===== */
+.jungle-panel {
+  background:
+    linear-gradient(135deg, rgba(196, 162, 101, 0.06) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(196, 162, 101, 0.06) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(196, 162, 101, 0.04) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(196, 162, 101, 0.04) 25%, transparent 25%),
+    linear-gradient(to bottom, var(--parchment), var(--parchment-dark) 50%, var(--parchment));
+}
+
+/* ===== BAMBOO FRAME BORDER ===== */
+.bamboo-frame {
+  position: relative;
+}
+.bamboo-frame::before,
+.bamboo-frame::after {
+  content: '';
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+/* Left bamboo stalk */
+.bamboo-frame::before {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 10px;
+  background:
+    linear-gradient(to right, var(--bamboo-dark), var(--bamboo-tan) 40%, var(--bamboo-light) 60%, var(--bamboo-tan) 80%, var(--bamboo-dark)),
+    repeating-linear-gradient(to bottom, transparent, transparent 60px, rgba(0,0,0,0.15) 60px, rgba(0,0,0,0.15) 62px);
+  background-blend-mode: normal;
+  border-radius: 4px;
+}
+/* Right bamboo stalk */
+.bamboo-frame::after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  background:
+    linear-gradient(to right, var(--bamboo-dark), var(--bamboo-tan) 40%, var(--bamboo-light) 60%, var(--bamboo-tan) 80%, var(--bamboo-dark)),
+    repeating-linear-gradient(to bottom, transparent, transparent 60px, rgba(0,0,0,0.15) 60px, rgba(0,0,0,0.15) 62px);
+  background-blend-mode: normal;
+  border-radius: 4px;
+}
+
+/* ===== WOODEN SIGN HEADER ===== */
+.wooden-sign {
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.1) 100%),
+    linear-gradient(90deg,
+      var(--bamboo-dark) 0%,
+      var(--bamboo-tan) 5%,
+      var(--bamboo-light) 15%,
+      var(--bamboo-tan) 50%,
+      var(--bamboo-light) 85%,
+      var(--bamboo-tan) 95%,
+      var(--bamboo-dark) 100%
+    );
+  border-top: 2px solid var(--bamboo-dark);
+  border-bottom: 3px solid var(--bamboo-dark);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.wooden-sign h1 {
+  color: var(--jungle-deep);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3), -1px -1px 0 rgba(0, 0, 0, 0.08);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: 0.5px;
+}
+
+/* ===== BLOG CARDS - BAMBOO ROPE BORDER ===== */
+.bamboo-card {
+  background: white;
+  border: 2px solid var(--bamboo-tan);
+  border-radius: 12px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(196, 162, 101, 0.15);
+  transition: all 0.2s ease-out;
+  overflow: hidden;
+}
+.bamboo-card:hover {
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(196, 162, 101, 0.25);
+  transform: translateY(-2px);
+  border-color: var(--bamboo-dark);
+}
+.bamboo-card.selected {
+  border-color: var(--golden-glow);
+  box-shadow:
+    0 0 0 3px var(--golden-soft),
+    0 4px 12px rgba(212, 168, 67, 0.2);
+}
+
+/* ===== VINE DECORATIONS ===== */
+.vine-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  opacity: 0.35;
+  color: var(--jungle-light);
+  font-size: 14px;
+  user-select: none;
+}
+
+/* ===== SCROLLBAR ===== */
 .overlay-scroll::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 .overlay-scroll::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(196, 162, 101, 0.1);
 }
 .overlay-scroll::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.12);
+  background: var(--bamboo-tan);
   border-radius: 4px;
 }
 .overlay-scroll:hover::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--bamboo-dark);
 }
 
-/* Toolbar buttons */
+/* ===== TOOLBAR BUTTONS ===== */
 .toolbar-btn {
   display: inline-flex;
   align-items: center;
@@ -55,18 +209,18 @@ body {
   border-radius: 8px;
   font-size: 13px;
   font-weight: 500;
-  color: #374151;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  color: var(--jungle-deep);
+  background: var(--parchment);
+  border: 1px solid var(--bamboo-tan);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 .toolbar-btn:hover {
-  background: #f3f4f6;
-  border-color: #d1d5db;
+  background: var(--parchment-dark);
+  border-color: var(--bamboo-dark);
 }
 
-/* Map nav buttons */
+/* ===== MAP NAV BUTTONS ===== */
 .map-nav-btn {
   display: inline-flex;
   align-items: center;
@@ -84,4 +238,22 @@ body {
 .map-nav-btn:hover {
   background: #f9fafb;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== LEAF CORNER DECORATIONS ===== */
+.leaf-corner-tl,
+.leaf-corner-br {
+  position: absolute;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0.5;
+}
+.leaf-corner-tl {
+  top: 48px;
+  left: 12px;
+}
+.leaf-corner-br {
+  bottom: 8px;
+  right: 12px;
+  transform: rotate(180deg);
 }
