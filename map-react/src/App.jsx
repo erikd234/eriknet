@@ -55,7 +55,6 @@ function App() {
   // this is starting at 0and goes to zero
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedId = selectedIndex + 1;
-  const [selIframeSrc, setSelIframeSrc] = useState("1.html");
   const [iFrameView, setIFrameView] = useState(false);
   const scrollingElementRef = useRef(null);
   const blogCardRefs = useRef([]);
@@ -99,8 +98,7 @@ function App() {
     setSelectedIndex(postId - 1);
   };
 
-  const handleSelection = (e, selectedPostId, iframeSource) => {
-    setSelIframeSrc(iframeSource);
+  const handleSelection = (e, selectedPostId) => {
     setIFrameView(true);
     // adding a little timeout makes the UI look cleaner
     const element = e.currentTarget;
@@ -191,7 +189,6 @@ function App() {
     if (nextPostIndex == blogCardRefs.current.length) {
       return;
     }
-    setSelIframeSrc(posts[nextPostIndex].htmlPath);
     setSelectedIndex(nextPostIndex);
     flyMapToPostIndex(nextPostIndex);
   };
@@ -204,7 +201,6 @@ function App() {
     if (prevPostIndex < 0) {
       return;
     }
-    setSelIframeSrc(posts[prevPostIndex].htmlPath);
     setSelectedIndex(prevPostIndex);
     flyMapToPostIndex(prevPostIndex);
   };
@@ -231,9 +227,6 @@ function App() {
   }, [selectedIndex, iFrameView]);
 
   const handlePostMapMarkerClick = (newIndex) => {
-    if (iFrameView) {
-      setSelIframeSrc(posts[newIndex].htmlPath);
-    }
     setSelectedIndex(newIndex);
     const nextDivToCenter = blogCardRefs.current[newIndex];
     centerElementInScrollContainer(
@@ -250,7 +243,6 @@ function App() {
           ref={scrollingElementRef}
           selectedId={selectedId}
           onSelection={handleSelection}
-          selIframeSrc={selIframeSrc}
           isIFrameView={iFrameView}
           onPrevClick={handleOverlayPrevClick}
           onNextClick={handleOverlayNextClick}

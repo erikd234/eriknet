@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import BlogCard from "./blog-card";
-import { BlogIframe, BlogClose } from "./blog-iframe";
-import Spinner from "./spinner";
+import QuestReader from "./quest-reader";
 
 const SwordSVG = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +49,7 @@ const QuestStats = ({ totalPosts }) => (
     </div>
     <div className="flex justify-between items-center">
       <span className="rs-stat-label">Distance Biked:</span>
-      <span className="rs-stat-value">???km</span>
+      <span className="rs-stat-value">3,825km</span>
     </div>
     {/* Quest progress bar */}
     <div className="mt-3">
@@ -67,7 +66,6 @@ const QuestStats = ({ totalPosts }) => (
 const Overlay = forwardRef(
   (
     {
-      selIframeSrc,
       isIFrameView,
       selectedId,
       onSelection,
@@ -95,47 +93,12 @@ const Overlay = forwardRef(
         >
           <Header totalPosts={posts.length} completedPosts={posts.length} />
           {isIFrameView ? (
-            <BlogIframe iframeSrc={selIframeSrc} blogScrollPos={0}>
-              <BlogClose>
-                <button
-                  onClick={onIFrameClose}
-                  className="toolbar-btn"
-                  title="Back to quest log"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                    <path fillRule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clipRule="evenodd" />
-                  </svg>
-                  <span>Back</span>
-                </button>
-                <div className="flex gap-1">
-                  <button
-                    onClick={onPrevClick}
-                    className="toolbar-btn"
-                    title="Previous quest"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                      <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
-                    </svg>
-                    <span>Prev</span>
-                  </button>
-                  <button
-                    onClick={onNextClick}
-                    className="toolbar-btn"
-                    title="Next quest"
-                  >
-                    <span>Next</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                      <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                </div>
-              </BlogClose>
-            </BlogIframe>
-          ) : null}
-          {isIFrameView ? (
-            <div className="w-full h-full absolute z-40" style={{ background: 'var(--rs-parchment)' }}>
-              <Spinner />
-            </div>
+            <QuestReader
+              postId={selectedId}
+              onClose={onIFrameClose}
+              onPrev={onPrevClick}
+              onNext={onNextClick}
+            />
           ) : null}
 
           <QuestStats totalPosts={posts.length} />
