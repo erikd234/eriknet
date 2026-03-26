@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 
 const PlaceholderGradient = () => (
   <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--rs-brown) 0%, var(--rs-brown-mid) 100%)' }}>
-    <span className="text-4xl opacity-60 select-none">&#x2694;</span>
+    <span className="text-5xl opacity-60 select-none">&#x2694;</span>
   </div>
 );
 
@@ -54,68 +54,69 @@ const BlogCard = forwardRef(
     const formattedDate = formatDate(createdAt);
 
     return (
-      <div ref={ref} className="w-full px-5 py-1">
+      <div ref={ref} className="w-full px-3 py-1.5">
         <article
           className={`quest-card cursor-pointer ${selected ? "selected" : ""}`}
           onClick={handleSelection}
         >
-          <div className="flex">
-            {/* Thumbnail */}
-            <div className="relative w-28 min-h-[80px] flex-shrink-0 overflow-hidden">
-              {hasThumbnail ? (
-                <img
-                  alt=""
-                  src={thumbnailUrl}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <PlaceholderGradient />
-              )}
+          {/* Large thumbnail image at top */}
+          <div className="relative w-full overflow-hidden" style={{ height: '180px' }}>
+            {hasThumbnail ? (
+              <img
+                alt=""
+                src={thumbnailUrl}
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <PlaceholderGradient />
+            )}
+            {/* Quest number badge overlay */}
+            <div className="absolute top-2 left-2 flex items-center gap-2">
+              <span style={{
+                fontFamily: "'MedievalSharp', serif",
+                fontSize: '12px',
+                color: 'var(--rs-gold-bright)',
+                background: 'rgba(26, 16, 8, 0.85)',
+                padding: '2px 8px',
+                borderRadius: '2px',
+                border: '1px solid var(--rs-gold-dim)',
+              }}>
+                Quest {postNumber}{totalPosts ? `/${totalPosts}` : ''}
+              </span>
+              <span className="quest-complete text-xs">
+                &#10003; COMPLETED
+              </span>
             </div>
+          </div>
 
-            {/* Quest info */}
-            <div className="flex-1 px-3 py-2">
-              {/* Quest number and status */}
-              <div className="flex items-center gap-2 mb-1">
-                <span style={{
-                  fontFamily: "'MedievalSharp', serif",
-                  fontSize: '11px',
-                  color: 'var(--rs-gold-dim)',
-                }}>
-                  Quest {postNumber}{totalPosts ? `/${totalPosts}` : ''}
-                </span>
-                <span className="quest-complete text-xs">
-                  &#10003; COMPLETED
-                </span>
-              </div>
+          {/* Quest info below image */}
+          <div className="px-3 py-2.5">
+            {/* Quest title */}
+            <h3 className="quest-title text-base font-bold leading-tight">
+              {mainHeader}
+            </h3>
 
-              {/* Quest title */}
-              <h3 className="quest-title text-sm font-bold leading-tight">
-                {mainHeader}
-              </h3>
+            {/* Subtitle / description */}
+            {subHeader && (
+              <p className="mt-1 text-sm leading-snug line-clamp-2"
+                 style={{ color: 'var(--rs-brown-mid)', fontFamily: "'MedievalSharp', serif" }}>
+                {subHeader}
+              </p>
+            )}
 
-              {/* Subtitle / description */}
-              {subHeader && (
-                <p className="mt-0.5 text-xs leading-snug line-clamp-2"
-                   style={{ color: 'var(--rs-brown-mid)', fontFamily: "'MedievalSharp', serif" }}>
-                  {subHeader}
-                </p>
+            {/* Date and read more */}
+            <div className="flex items-center justify-between mt-2">
+              {formattedDate && (
+                <time className="text-xs" style={{ color: 'var(--rs-brown-light)', fontFamily: "'MedievalSharp', serif" }}>
+                  {formattedDate}
+                </time>
               )}
-
-              {/* Date and read more */}
-              <div className="flex items-center justify-between mt-1.5">
-                {formattedDate && (
-                  <time className="text-[10px]" style={{ color: 'var(--rs-brown-light)', fontFamily: "'MedievalSharp', serif" }}>
-                    {formattedDate}
-                  </time>
-                )}
-                <span className="flex items-center gap-1 text-[11px]"
-                      style={{ color: 'var(--rs-gold-dim)', fontFamily: "'MedievalSharp', serif" }}>
-                  <QuestScrollIcon />
-                  Read more...
-                </span>
-              </div>
+              <span className="flex items-center gap-1 text-xs"
+                    style={{ color: 'var(--rs-gold-dim)', fontFamily: "'MedievalSharp', serif" }}>
+                <QuestScrollIcon />
+                Read more...
+              </span>
             </div>
           </div>
         </article>

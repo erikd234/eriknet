@@ -140,7 +140,7 @@ const Overlay = forwardRef(
 
           <QuestStats totalPosts={posts.length} />
 
-          <div className="w-full max-w-2xl py-2 px-1">
+          <div className="w-full py-2">
             {posts.map((post, index) => (
               <BlogCard
                 key={post.postId}
@@ -151,7 +151,7 @@ const Overlay = forwardRef(
                 mainHeader={post.web_title}
                 subHeader={post.subtitle}
                 createdAt={post.created_at}
-                iframeUrl={`/${post.htmlPath}`}
+                iframeUrl={post.htmlPath}
                 onSelection={onSelection}
                 totalPosts={posts.length}
                 ref={(el) => {
